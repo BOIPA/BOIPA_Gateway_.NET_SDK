@@ -32,7 +32,7 @@ Some of the possible request/call chains (ie. tokenize -> auth -> capture) can b
 ### Typical Flow
   I. Prepare a configuration file for the SDK:
      Get "EnvParams.xml" file from SDK package, put it under the root dictionary of your project, check all the configured values in the file and make sure they are all accuracy.<br />
-  II. Access the ApplicationConfig object like this:
+  II. Access the ApplicationConfig object like this:<br />
       string merchantID = Properties.Settings.Default.merchantId;
                 string password = Properties.Settings.Default.password;
                 string merchantNotificationUrl = Properties.Settings.Default.merchantNotificationUrl;
