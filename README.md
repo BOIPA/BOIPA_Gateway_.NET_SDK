@@ -33,12 +33,12 @@ Some of the possible request/call chains (ie. tokenize -> auth -> capture) can b
   I. Prepare a configuration file for the SDK:
      Get "EnvParams.xml" file from SDK package, put it under the root dictionary of your project, check all the configured values in the file and make sure they are all accuracy.<br />
   II. Access the ApplicationConfig object like this:<br />
-      string merchantID = Properties.Settings.Default.merchantId;
-                string password = Properties.Settings.Default.password;
-                string merchantNotificationUrl = Properties.Settings.Default.merchantNotificationUrl;
-                string allowOriginUrl = Properties.Settings.Default.allowOriginUrl;
-                string merchantLandingPageUrl = Properties.Settings.Default.merchantLandingPageUrl;
-                string environment = Properties.Settings.Default.TurnkeySdkConfig;
+      string merchantID = Properties.Settings.Default.merchantId;<br />
+                string password = Properties.Settings.Default.password;<br />
+                string merchantNotificationUrl = Properties.Settings.Default.merchantNotificationUrl;<br />
+                string allowOriginUrl = Properties.Settings.Default.allowOriginUrl;<br />
+                string merchantLandingPageUrl = Properties.Settings.Default.merchantLandingPageUrl;<br />
+                string environment = Properties.Settings.Default.TurnkeySdkConfig;<br />
 
                 ApplicationConfig config = new ApplicationConfig(merchantID, password, allowOriginUrl, merchantNotificationUrl,
                                                                  merchantLandingPageUrl, environment);
