@@ -3,7 +3,7 @@ This document introduces the file structure of SDK project, available classes an
 
 # Details
 ## Part1 - The file structure of SDK project:
-* "TurnkeySourceCode" is for SDK library source code, you can open the sollution using visual studio and build it to get a *.dll file. 
+* "TurnkeySourceCode" is for SDK library source code, you can open the solution using visual studio and build it to get a *.dll file. 
 * "TurnkeySDKDemoAndUnitTest" is for some demos which shows all needed parameters and the excution result, and unit test represent the detail logic of each transaction and dependency.
 
 ## Part2 - User guideline of using SDK
@@ -39,9 +39,11 @@ Some of the possible request/call chains (ie. tokenize -> auth -> capture) can b
              string allowOriginUrl = Properties.Settings.Default.allowOriginUrl;<br />
              string merchantLandingPageUrl = Properties.Settings.Default.merchantLandingPageUrl;<br />
              string environment = Properties.Settings.Default.TurnkeySdkConfig;<br />
+			 string country = Properties.Settings.Default.country;<br />
+			 string language = Properties.Settings.Default.language;<br />
 
                 ApplicationConfig config = new ApplicationConfig(merchantID, password, allowOriginUrl, merchantNotificationUrl,
-                                                                 merchantLandingPageUrl, environment);
+                                                                 merchantLandingPageUrl, environment, country, language);
       The applicationConfig object defines all environment parameters listed below:
 	  * TurnkeyEnvironment include two values: "UAT","Production"
 	  * SessionTokenRequestUrl
@@ -54,11 +56,12 @@ Some of the possible request/call chains (ie. tokenize -> auth -> capture) can b
 	  * MerchantLandingPageUrl
 	  * MerchantId
 	  * Password
+	  * Country
+	  * Language
 	  "SessionTokenRequestUrl","PaymentOperationActionUrl","CashierUrl","CashierMobileUrl","JavaScriptUrl" are readonly.
   III. Create the a Call object:
       Dictionary<String, String> params = new Dictionary<String, String>();
-      inputParams.Add("country", "FR");
-      inputParams.Add("currency", "EUR");
+      params.Add("currency", "EUR");
       ApiCall call = new GetAvailablePaymentSolutionsCall(config, params);
       The call parameters have to supplied via a Dictionary.
       The constructor will do a simple "pre" validation on the params Dictionary. It will only check for the required keys (without an HTTP/API call).
@@ -90,6 +93,6 @@ SDK demo and unit test is an individual project, you can open it with visual stu
 
 The demo reference SDK library(.dll file) invokes the api method to complete related transactions. It is designed as web application, you can input all required parameters and submit your request to get result.
 
-Unit test present all transaction api invoking, prepare parameters, process the result, also you can get the knowlege of relationship among the transactions.
+Unit test present all transaction api invoking, prepare parameters, process the result, also you can get the knowledge of relationship among the transactions.
 
 
